@@ -1,0 +1,18 @@
+{
+  "name": "angular-shell",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.52",
+    "es6-shim": "^0.33.13",
+    "jsdom": "^7.2.0",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-alpha.14",
+    "source-map-support": "^0.4.0",
+    "zone.js": "^0.5.8"
+  }
+}

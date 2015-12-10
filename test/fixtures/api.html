@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <body>
+    <server [host]="127.0.0.1" [port]="8080">
+      <log [output]="server.log"/>
+      <datasource #db [driver]="postgresql" [host]="localhost" [port]="5432" [user]="test" [password]="test"/>
+      <dao [datasource]="db">
+        <query #sample-list>
+          SELECT * FROM sample;
+        </query>
+        <query #insert-sample>
+          INSERT INTO SAMPLE (text_data) VALUES ({{vars.text_data}});
+        </query>
+      </dao>
+      <route [path]="/sample" [method]="GET">
+        <my-service-factory [query]="sample-list" [to-dto]="sample-dto"/>
+      </route>
+      <route [path]="/sample" [method]="POST">
+        <param [insert_sample.vars.text_data]="payload.text_data"/>
+        <my-service [query]="insert-sample" (result)="response.redirect('/sample')"/>
+      </route>
+    </server>
+  </body>
+</html>

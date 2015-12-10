@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <body>
+    <server [host]="127.0.0.1" [port]="8080">
+      <log [output]="server.log"/>
+      <route [path]="/static">
+        <static-dir [dir]="./static"/>
+      </route>
+      <route [path]="/favicon.ico">
+        <static-file [path]="./static/favicon.ico"/>
+      </route>
+      <route [path]="/test1" [method]="GET">
+        Hello world !!!
+      </route>
+      <route [path]="/test2" [method]="GET">
+        <my-custom-handler/>
+      </route>
+    </server>
+  </body>
+</html>
