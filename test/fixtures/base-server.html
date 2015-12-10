@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <body>
-    <server [host]="127.0.0.1" [port]="8080">
+    <http-server [host]="127.0.0.1" [port]="8080">
       <log [output]="server.log"/>
       <route [path]="/static">
         <static-dir [dir]="./static"/>
@@ -15,6 +15,6 @@
       <route [path]="/test2" [method]="GET">
         <my-custom-handler/>
       </route>
-    </server>
+    </http-server>
   </body>
 </html>

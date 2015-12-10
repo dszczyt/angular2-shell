@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <body>
-    <server [host]="127.0.0.1" [port]="8080">
+    <http-server [host]="127.0.0.1" [port]="8080">
       <log [output]="server.log"/>
       <datasource #db [driver]="postgresql" [host]="localhost" [port]="5432" [user]="test" [password]="test"/>
       <dao [datasource]="db">
@@ -19,6 +19,6 @@
         <param [insert_sample.vars.text_data]="payload.text_data"/>
         <my-service [query]="insert-sample" (result)="response.redirect('/sample')"/>
       </route>
-    </server>
+    </http-server>
   </body>
 </html>
